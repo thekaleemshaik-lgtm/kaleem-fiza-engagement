@@ -83,13 +83,6 @@ button{
 }
 
 button:disabled{opacity:.4}
-
-.urdu{
-  direction:rtl;
-  font-size:18px;
-  line-height:1.8;
-  text-align:center;
-}
 </style>
 </head>
 
@@ -108,7 +101,7 @@ button:disabled{opacity:.4}
   <p class="center"><strong>11 January 2026</strong></p>
 </div>
 
-<!-- PAGE 2 : BISMILLAH (CALLIGRAPHY) -->
+<!-- PAGE 2 : BISMILLAH -->
 <div class="page center">
   <img src="bismillah.png" width="320" alt="Bismillah Calligraphy">
   <p style="margin-top:20px">
@@ -116,15 +109,7 @@ button:disabled{opacity:.4}
   </p>
 </div>
 
-<!-- PAGE 3 : BISMILLAH (URDU) -->
-<div class="page">
-  <h2>بسم اللہ</h2>
-  <p class="urdu">
-    اللہ کے نام سے شروع جو نہایت مہربان، رحم کرنے والا ہے۔
-  </p>
-</div>
-
-<!-- PAGE 4 : BLESSED UNION -->
+<!-- PAGE 3 : BLESSED UNION -->
 <div class="page">
   <h2>The Blessed Union</h2>
   <p class="center" style="font-size:22px">
@@ -133,35 +118,32 @@ button:disabled{opacity:.4}
   <p class="center"><em>(Qur’an 30:21)</em></p>
 </div>
 
-<!-- PAGE 5 : AYAH URDU -->
-<div class="page">
-  <h2>قرآنی پیغام</h2>
-  <p class="urdu">
-    اور اس کی نشانیوں میں سے یہ ہے کہ اس نے تمہارے لیے تم ہی میں سے جوڑے پیدا کیے،
-    تاکہ تم ان سے سکون حاصل کرو۔
-  </p>
-</div>
-
-<!-- PAGE 6 : GROOM -->
+<!-- PAGE 4 : GROOM -->
 <div class="page">
   <h2>The Groom</h2>
   <div class="profile">
     <h3>Kaleem Shaik</h3>
     <p>Son of Shaik Jeelani</p>
-    <p>A believer striving to live with faith, humility, and responsibility.</p>
+    <p>
+      A believer striving to live with faith, humility,
+      responsibility, and kindness.
+    </p>
   </div>
 </div>
 
-<!-- PAGE 7 : BRIDE -->
+<!-- PAGE 5 : BRIDE -->
 <div class="page">
   <h2>The Bride</h2>
   <div class="profile">
     <h3>Fiza</h3>
-    <p>A woman of grace, patience, and strong Islamic values.</p>
+    <p>
+      A woman of grace, patience, and strong Islamic values,
+      raised with love and faith.
+    </p>
   </div>
 </div>
 
-<!-- PAGE 8 : EVENT -->
+<!-- PAGE 6 : EVENT DETAILS -->
 <div class="page center">
   <h2>Engagement Details</h2>
   <p><strong>Date:</strong> 11 January 2026</p>
@@ -169,7 +151,7 @@ button:disabled{opacity:.4}
   <p>With the blessings of Allah ﷻ</p>
 </div>
 
-<!-- PAGE 9 : VENUE -->
+<!-- PAGE 7 : VENUE -->
 <div class="page">
   <h2>Venue</h2>
   <iframe
@@ -179,11 +161,12 @@ button:disabled{opacity:.4}
   </iframe>
 </div>
 
-<!-- PAGE 10 : DUAS -->
+<!-- PAGE 8 : DUAS -->
 <div class="page center">
   <h2>Duas & Gratitude</h2>
   <p>
-    We humbly request your duas as we begin our journey together for the sake of Allah.
+    We humbly request your duas and blessings  
+    as we begin our journey together for the sake of Allah.
   </p>
   <p><em>May Allah grant us sakinah, mawaddah & rahmah.</em></p>
 </div>
@@ -196,22 +179,28 @@ button:disabled{opacity:.4}
 </div>
 
 <script>
-let pages=document.querySelectorAll('.page');
-let current=0;
-let sound=document.getElementById("flipSound");
+let pages = document.querySelectorAll('.page');
+let current = 0;
+let sound = document.getElementById("flipSound");
 
 function showPage(i){
-  pages.forEach(p=>p.classList.remove('active'));
+  pages.forEach(p => p.classList.remove('active'));
   pages[i].classList.add('active');
-  sound.play();
+  if(sound) sound.play();
 }
 
 function nextPage(){
-  if(current<pages.length-1){current++;showPage(current);}
+  if(current < pages.length - 1){
+    current++;
+    showPage(current);
+  }
 }
 
 function prevPage(){
-  if(current>0){current--;showPage(current);}
+  if(current > 0){
+    current--;
+    showPage(current);
+  }
 }
 </script>
 
