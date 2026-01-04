@@ -26,10 +26,8 @@ body{
   z-index:10;
   animation:openCard 2.8s forwards;
 }
-
 @keyframes openCard{
-  0%{opacity:1;transform:scale(1)}
-  100%{opacity:0;transform:scale(1.25);visibility:hidden}
+  to{opacity:0;transform:scale(1.25);visibility:hidden}
 }
 
 .cover-box{
@@ -40,16 +38,6 @@ body{
   box-shadow:0 25px 50px rgba(0,0,0,.25);
 }
 
-.cover-box h1{
-  font-family:'Playfair Display',serif;
-  color:#b08d57;
-}
-
-.cover-box p{
-  letter-spacing:2px;
-}
-
-/* Logo */
 .logo{
   width:90px;
   height:90px;
@@ -64,16 +52,9 @@ body{
   color:#b08d57;
 }
 
-/* Hero */
 .hero{
   text-align:center;
-  padding:90px 20px 60px;
-  animation:fadeIn 2s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
+  padding:90px 20px 50px;
 }
 
 .hero h1{
@@ -82,17 +63,12 @@ body{
   color:#b08d57;
 }
 
-.hero h2{
-  font-weight:300;
-}
-
-/* Sections */
 .section{
   padding:50px 20px;
 }
 
 .card{
-  max-width:440px;
+  max-width:460px;
   margin:0 auto 30px;
   background:#fff;
   padding:30px;
@@ -105,30 +81,20 @@ body{
   color:#b08d57;
 }
 
-/* Ayah */
-.ayah-ar{
-  font-size:26px;
-  font-family:'Amiri',serif;
-  margin-bottom:15px;
+.countdown{
+  display:flex;
+  justify-content:space-around;
+  font-size:18px;
 }
 
-.ayah-en{
-  font-size:14px;
-  color:#555;
+.countdown div{
+  text-align:center;
 }
 
-/* Music */
-.music{
-  position:fixed;
-  bottom:15px;
-  right:15px;
-  background:#fff;
-  padding:8px;
-  border-radius:50%;
-  box-shadow:0 5px 15px rgba(0,0,0,.2);
+iframe{
+  border-radius:14px;
 }
 
-/* Footer */
 footer{
   text-align:center;
   padding:25px;
@@ -140,61 +106,67 @@ footer{
 
 <body>
 
-<!-- Opening Cover -->
+<!-- Opening -->
 <div id="cover">
   <div class="cover-box">
     <div class="logo">K & F</div>
-    <h1>Kaleem & Fiza</h1>
-    <p>ENGAGEMENT INVITATION</p>
+    <h2>Engagement Invitation</h2>
   </div>
-</div>
-
-<!-- Music -->
-<div class="music">
-  <audio controls autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
 </div>
 
 <!-- Hero -->
 <div class="hero">
   <div class="logo">K & F</div>
   <h1>Kaleem & Fiza</h1>
-  <h2>With the blessings of Allah ﷻ</h2>
+  <p>With the blessings of Allah ﷻ</p>
   <p><strong>11 January 2026</strong></p>
 </div>
 
-<!-- Ayah Section -->
+<!-- Calligraphy -->
 <div class="section">
-  <div class="card">
-    <div class="ayah-ar">
-      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
-    </div>
-    <div class="ayah-en">
-      “And among His signs is that He created for you spouses from among yourselves…”
+  <div class="card" style="text-align:center">
+    <img src="calligraphy.png" width="180">
+    <p style="margin-top:15px">
+      “And among His signs is that He created for you spouses…”
       <br><em>(Qur’an 30:21)</em>
+    </p>
+  </div>
+
+  <!-- Countdown -->
+  <div class="card">
+    <h3>Countdown to Our Engagement</h3>
+    <div class="countdown">
+      <div><span id="days"></span><br>Days</div>
+      <div><span id="hours"></span><br>Hours</div>
+      <div><span id="minutes"></span><br>Minutes</div>
+      <div><span id="seconds"></span><br>Seconds</div>
     </div>
   </div>
 
+  <!-- RSVP -->
   <div class="card">
-    <h3>Engagement Details</h3>
-    <p><strong>Date:</strong> 11 January 2026</p>
-    <p><strong>Time:</strong> 11:00 AM</p>
-    <p><strong>Venue:</strong> Nellore, Andhra Pradesh</p>
-  </div>
-
-  <div class="card">
-    <h3>Location</h3>
-    <iframe
-      src="https://www.google.com/maps?q=Nellore%20Andhra%20Pradesh&output=embed"
-      width="100%" height="250" allowfullscreen>
+    <h3>RSVP</h3>
+    <iframe src="FORM_LINK_HERE"
+      width="100%" height="420" frameborder="0">
     </iframe>
   </div>
 </div>
 
 <footer>
-  May Allah bless our union with love & barakah 🤍
+  May Allah bless this union with love & barakah 🤍
 </footer>
+
+<script>
+const eventDate = new Date("January 11, 2026 11:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = eventDate - now;
+  document.getElementById("days").innerText = Math.floor(diff/(1000*60*60*24));
+  document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  document.getElementById("minutes").innerText = Math.floor((diff%(1000*60*60))/(1000*60));
+  document.getElementById("seconds").innerText = Math.floor((diff%(1000*60))/1000);
+},1000);
+</script>
 
 </body>
 </html>
