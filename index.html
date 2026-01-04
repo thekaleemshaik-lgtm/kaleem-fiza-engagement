@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Kaleem & Fiza | Nikah Book</title>
+<title>Kaleem & Fiza | Engagement Invitation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@ body{
 
 .page{
   display:none;
-  padding:50px 40px;
+  padding:60px 40px;
   animation:flip 0.8s ease;
 }
 
@@ -47,6 +47,43 @@ h1,h2,h3{
 
 .center{text-align:center}
 
+/* Logo */
+.logo{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  border:2px solid #b08d57;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:20px auto;
+  font-family:'Playfair Display',serif;
+  font-size:30px;
+  color:#b08d57;
+}
+
+/* Bismillah */
+.bismillah-ar{
+  font-size:36px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.bismillah-en{
+  text-align:center;
+  font-size:14px;
+  color:#555;
+}
+
+/* Profile */
+.profile{
+  background:#fffaf3;
+  border:1px solid #f1e4c8;
+  border-radius:16px;
+  padding:25px;
+}
+
+/* Navigation */
 .nav{
   display:flex;
   justify-content:space-between;
@@ -60,114 +97,4 @@ button{
   border:none;
   padding:10px 18px;
   border-radius:20px;
-  cursor:pointer;
-}
-
-button:disabled{
-  opacity:0.4;
-}
-
-.ayah-ar{
-  font-size:26px;
-  text-align:center;
-}
-
-.profile{
-  background:#fffaf3;
-  border:1px solid #f1e4c8;
-  border-radius:16px;
-  padding:25px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="book" id="book">
-
-  <div class="page active">
-    <h1>Kaleem & Fiza</h1>
-    <p class="center">In the name of Allah, the Most Merciful</p>
-    <p class="center"><strong>Nikah & Engagement Book</strong></p>
-    <p class="center">11 January 2026</p>
-  </div>
-
-  <div class="page">
-    <h2>Index</h2>
-    <p>Chapter 1 – The Blessed Union</p>
-    <p>Chapter 2 – The Groom</p>
-    <p>Chapter 3 – The Bride</p>
-    <p>Chapter 4 – Event Details</p>
-    <p>Chapter 5 – Venue</p>
-    <p>Final Page – Duas</p>
-  </div>
-
-  <div class="page">
-    <h2>The Blessed Union</h2>
-    <div class="ayah-ar">
-      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
-    </div>
-    <p class="center"><em>Qur’an 30:21</em></p>
-  </div>
-
-  <div class="page">
-    <h2>The Groom</h2>
-    <div class="profile">
-      <h3>Kaleem Shaik</h3>
-      <p>Son of Shaik Jeelani</p>
-      <p>A believer striving for faith, responsibility, and kindness.</p>
-    </div>
-  </div>
-
-  <div class="page">
-    <h2>The Bride</h2>
-    <div class="profile">
-      <h3>Fiza</h3>
-      <p>A woman of grace, patience, and strong Islamic values.</p>
-    </div>
-  </div>
-
-  <div class="page">
-    <h2>Event Details</h2>
-    <p class="center">11 January 2026 – 11:00 AM</p>
-    <p class="center">Engagement & Nikah Blessings</p>
-  </div>
-
-  <div class="page">
-    <h2>Venue</h2>
-    <iframe src="https://www.google.com/maps?q=Nellore%20Andhra%20Pradesh&output=embed"
-      width="100%" height="250" style="border:0;border-radius:16px"></iframe>
-  </div>
-
-  <div class="page">
-    <h2>Duas & Gratitude</h2>
-    <p class="center">May Allah grant us sakinah, mawaddah, and rahmah.</p>
-  </div>
-
-  <div class="nav">
-    <button onclick="prevPage()">Previous</button>
-    <button onclick="nextPage()">Next</button>
-  </div>
-
-</div>
-
-<script>
-let pages=document.querySelectorAll('.page');
-let current=0;
-
-function showPage(i){
-  pages.forEach(p=>p.classList.remove('active'));
-  pages[i].classList.add('active');
-}
-
-function nextPage(){
-  if(current<pages.length-1){current++;showPage(current);}
-}
-
-function prevPage(){
-  if(current>0){current--;showPage(current);}
-}
-</script>
-
-</body>
-</html>
+  cursor:poi
