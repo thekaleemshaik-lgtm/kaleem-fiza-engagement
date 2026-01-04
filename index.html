@@ -11,23 +11,41 @@
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:#fdf8ef;
+  background:#eee6d8;
 }
 
+/* OUTER FRAME */
 .book{
-  max-width:720px;
-  margin:40px auto;
-  background:#fff;
-  border-radius:20px;
-  box-shadow:0 25px 60px rgba(0,0,0,.15);
-  overflow:hidden;
-  perspective:1600px;
+  max-width:760px;
+  margin:20px auto;
+  padding:18px;
+  background:
+    linear-gradient(#8b6b2e,#8b6b2e) top,
+    linear-gradient(#8b6b2e,#8b6b2e) bottom,
+    linear-gradient(#8b6b2e,#8b6b2e) left,
+    linear-gradient(#8b6b2e,#8b6b2e) right;
+  background-size:100% 6px,100% 6px,6px 100%,6px 100%;
+  background-repeat:no-repeat;
+  border-radius:26px;
+  box-shadow:0 25px 60px rgba(0,0,0,.25);
 }
 
+/* INNER BOOK */
+.book-inner{
+  background:#fffdf7;
+  border-radius:20px;
+  padding:12px;
+  border:3px solid #d1b77a;
+}
+
+/* PAGE */
 .page{
   display:none;
-  padding:60px 45px;
-  animation:flip .8s ease;
+  padding:70px 40px 60px;
+  border:2px solid #d8c089;
+  border-radius:18px;
+  position:relative;
+  animation:flip .7s ease;
 }
 
 .page.active{display:block}
@@ -37,52 +55,110 @@ body{
   to{transform:rotateY(0);opacity:1}
 }
 
+/* MIHRAB ARCH */
+.page::before{
+  content:"";
+  position:absolute;
+  top:-2px;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px;
+  height:95px;
+  border:4px solid #8b6b2e;
+  border-bottom:none;
+  border-radius:90px 90px 0 0;
+  background:#fffdf7;
+}
+
+/* INNER DASH */
+.page::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1.5px dashed #cbb37a;
+  border-radius:14px;
+  pointer-events:none;
+}
+
 h1,h2,h3{
   font-family:'Playfair Display',serif;
-  color:#b08d57;
+  color:#8b6b2e;
   text-align:center;
 }
 
 .center{text-align:center}
 
+/* LOGO */
 .logo{
-  width:100px;
-  height:100px;
+  width:90px;
+  height:90px;
   border-radius:50%;
-  border:2px solid #b08d57;
+  border:3px solid #8b6b2e;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:20px auto;
+  margin:16px auto;
   font-family:'Playfair Display',serif;
-  font-size:30px;
-  color:#b08d57;
+  font-size:28px;
+  color:#8b6b2e;
 }
 
+/* PROFILE */
 .profile{
-  background:#fffaf3;
-  border:1px solid #f1e4c8;
+  background:#fff7e4;
+  border:2px solid #d8c089;
   border-radius:16px;
-  padding:25px;
+  padding:22px;
 }
 
+/* NAV */
 .nav{
   display:flex;
   justify-content:space-between;
-  padding:20px 30px;
-  background:#fffaf3;
+  padding:18px 24px;
+  background:#fff7e4;
+  border-top:2px solid #d1b77a;
+  border-radius:0 0 20px 20px;
 }
 
 button{
-  background:#b08d57;
+  background:#8b6b2e;
   color:#fff;
   border:none;
-  padding:10px 20px;
-  border-radius:20px;
+  padding:12px 22px;
+  border-radius:24px;
   cursor:pointer;
+  font-size:14px;
 }
 
 button:disabled{opacity:.4}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px){
+  .book{
+    margin:10px;
+    padding:12px;
+  }
+  .page{
+    padding:60px 22px 50px;
+  }
+  .page::before{
+    width:140px;
+    height:75px;
+  }
+  h1{font-size:26px}
+  h2{font-size:22px}
+  p{font-size:14px}
+  .logo{
+    width:78px;
+    height:78px;
+    font-size:24px;
+  }
+  button{
+    padding:10px 18px;
+    font-size:13px;
+  }
+}
 </style>
 </head>
 
@@ -91,8 +167,9 @@ button:disabled{opacity:.4}
 <audio id="flipSound" src="page.mp3"></audio>
 
 <div class="book">
+<div class="book-inner">
 
-<!-- PAGE 1 : INVITATION -->
+<!-- PAGE 1 -->
 <div class="page active">
   <div class="logo">K & F</div>
   <h1>You Are Invited</h1>
@@ -101,49 +178,43 @@ button:disabled{opacity:.4}
   <p class="center"><strong>11 January 2026</strong></p>
 </div>
 
-<!-- PAGE 2 : BISMILLAH -->
+<!-- PAGE 2 -->
 <div class="page center">
-  <img src="bismillah.png" width="320" alt="Bismillah Calligraphy">
-  <p style="margin-top:20px">
+  <img src="bismillah.png" width="260" alt="Bismillah Calligraphy">
+  <p style="margin-top:18px">
     In the name of Allah, the Most Merciful, the Most Compassionate
   </p>
 </div>
 
-<!-- PAGE 3 : BLESSED UNION -->
+<!-- PAGE 3 -->
 <div class="page">
   <h2>The Blessed Union</h2>
-  <p class="center" style="font-size:22px">
+  <p class="center" style="font-size:20px">
     وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
   </p>
   <p class="center"><em>(Qur’an 30:21)</em></p>
 </div>
 
-<!-- PAGE 4 : GROOM -->
+<!-- PAGE 4 -->
 <div class="page">
   <h2>The Groom</h2>
   <div class="profile">
     <h3>Kaleem Shaik</h3>
     <p>Son of Shaik Jeelani</p>
-    <p>
-      A believer striving to live with faith, humility,
-      responsibility, and kindness.
-    </p>
+    <p>A believer striving to live with faith, humility, and responsibility.</p>
   </div>
 </div>
 
-<!-- PAGE 5 : BRIDE -->
+<!-- PAGE 5 -->
 <div class="page">
   <h2>The Bride</h2>
   <div class="profile">
     <h3>Fiza</h3>
-    <p>
-      A woman of grace, patience, and strong Islamic values,
-      raised with love and faith.
-    </p>
+    <p>A woman of grace, patience, and strong Islamic values.</p>
   </div>
 </div>
 
-<!-- PAGE 6 : EVENT DETAILS -->
+<!-- PAGE 6 -->
 <div class="page center">
   <h2>Engagement Details</h2>
   <p><strong>Date:</strong> 11 January 2026</p>
@@ -151,22 +222,21 @@ button:disabled{opacity:.4}
   <p>With the blessings of Allah ﷻ</p>
 </div>
 
-<!-- PAGE 7 : VENUE -->
+<!-- PAGE 7 -->
 <div class="page">
   <h2>Venue</h2>
   <iframe
     src="https://www.google.com/maps?q=Nellore%20Andhra%20Pradesh&output=embed"
-    width="100%" height="260"
+    width="100%" height="220"
     style="border:0;border-radius:16px">
   </iframe>
 </div>
 
-<!-- PAGE 8 : DUAS -->
+<!-- PAGE 8 -->
 <div class="page center">
   <h2>Duas & Gratitude</h2>
   <p>
-    We humbly request your duas and blessings  
-    as we begin our journey together for the sake of Allah.
+    We humbly request your duas as we begin our journey together for the sake of Allah.
   </p>
   <p><em>May Allah grant us sakinah, mawaddah & rahmah.</em></p>
 </div>
@@ -177,30 +247,25 @@ button:disabled{opacity:.4}
 </div>
 
 </div>
+</div>
 
 <script>
-let pages = document.querySelectorAll('.page');
-let current = 0;
-let sound = document.getElementById("flipSound");
+let pages=document.querySelectorAll('.page');
+let current=0;
+let sound=document.getElementById("flipSound");
 
 function showPage(i){
-  pages.forEach(p => p.classList.remove('active'));
+  pages.forEach(p=>p.classList.remove('active'));
   pages[i].classList.add('active');
   if(sound) sound.play();
 }
 
 function nextPage(){
-  if(current < pages.length - 1){
-    current++;
-    showPage(current);
-  }
+  if(current<pages.length-1){current++;showPage(current);}
 }
 
 function prevPage(){
-  if(current > 0){
-    current--;
-    showPage(current);
-  }
+  if(current>0){current--;showPage(current);}
 }
 </script>
 
